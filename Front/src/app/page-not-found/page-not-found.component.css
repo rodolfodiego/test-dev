@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:500,700");
+.body{
+  background: linear-gradient(45deg, #5397F9 0%, #22D38F 100%) !important;
+}
+.body-full{
+  background: linear-gradient(45deg, #5397F9 0%, #22D38F 100%);
+  height: 615px;
+}
+
+.container{
+  text-align: center;
+}
+.title{
+  margin-bottom: 70px;
+  font-family: 'Montserrat';
+  color: #FFF;
+}
+.btn-polls{
+  margin: 20px;
+  color: #2B3A60;
+  font-family: 'Montserrat';
+  font-size: 16px;
+  width: 343px;
+  height: 50px;
+  background-color: #E5E5E5;
+  border: none;
+  border-radius: 10px;
+}
+
+@media (max-width: 480px) {
+  .btn-polls{
+    width: 95%;
+    margin: 10px;
+  }
+}

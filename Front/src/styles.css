@@ -1,0 +1,7 @@
+body{
+  background: linear-gradient(45deg, #5397F9 0%, #22D38F 100%);
+}
+.menu_links{
+  cursor: pointer;
+}
+

@@ -1,0 +1,38 @@
+<div class="body-full" >
+
+  <div class="container mt-5" >
+    <div class="custom-class-1">
+      <div >
+        <span class="title">Enquetes:</span>
+      </div>
+      <div class="date-hour">
+        <label class="custom-class-2">Data e Hora: {{moment | date:"dd/MM/yyyy H:mm:ss"}}</label>
+      </div>
+    </div>
+
+    <div class="polls" *ngFor="let item of polls let i=index">
+      <div class="header-polls">
+        <div class="poll"><span>{{item.name}}</span></div>
+        <div class="custom-class-1">
+          <label class="custom-class-2">Data e hora  início: {{item.start_date | date:"dd/MM/yyyy H:mm"}}</label>
+          <label class="custom-class-2">Data e hora fim: {{item.end_date | date:"dd/MM/yyyy H:mm "}}</label>
+          <label class="custom-class-2" style="background-color: #b6b466;" *ngIf="item.status == 'not_started'">Status: Não Inicada</label>
+          <label class="custom-class-2" style="background-color: #22D38F;" *ngIf="item.status == 'started'">Status: Iniciada</label>
+          <label class="custom-class-2" style="background-color: #a13223;" *ngIf="item.status == 'finished'">Status: Finalizada</label>
+        </div>
+      </div>
+      <div class="options">
+        <div class="option" *ngFor="let option of item.options let j=index" >
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios" [disabled]="!(item.status == 'started') || (results[i].voted)" (click)="selectOption(i,j, item.id, option.id)" >
+            <label class="form-check-label" >{{option.option}}</label>
+          </div>
+          <label class="result">resultado: {{results[i].results[j].result}}</label>
+        </div>
+      </div>
+
+      <button *ngIf="!(results[i].voted)"  [disabled]="!(item.status == 'started') " class="btn-vote" (click)="vote()" >votar</button>
+      <label *ngIf="(results[i].voted)" class="registered-vote">Voto registrado</label>
+    </div>
+  </div>
+</div>
